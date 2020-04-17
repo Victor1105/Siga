@@ -1,0 +1,61 @@
+
+<div class="container">
+    <div class="col-xs-12">
+        <h3>{{ titulo }}</h3>
+    </div>
+    <hr/>
+    <!--(Importar) Formulario de Angular-->
+    <form class="form-row">
+        <div class="form-group col-md-2">
+            <label for="nombre" class="sr-only">Nombre</label>
+            <input type="text" name="nombre" id="nombre" placeholder="Nombre"
+                class="form-control"
+                [(ngModel)]="nombreInput"
+            ><br/>
+            <label for="edad" class="sr-only">Edad</label>
+            <input type="text" name="edad" id="edad" placeholder="Edad"
+                class="form-control"
+                [(ngModel)]="edadInput"
+            ><br/>
+            <label for="usuario" class="sr-only">Usuario</label>
+            <input type="text" name="usuario" id="usuario" placeholder="Usuario"
+                class="form-control"
+                [(ngModel)]="usuarioInput"
+            ><br/>
+            <label for="password" class="sr-only">Password</label>
+            <input type="text" name="password" id="password" placeholder="Password"
+                class="form-control"
+                [(ngModel)]="passwordInput"
+            ><br/>
+        </div>
+        <div class="col">
+            <button type="submit" class="btn btn-primary" 
+                (click) = "onAgregarUsuario()">Agregar
+            </button>
+        </div>
+    </form>
+    <hr/><br/>
+
+    <app-alumnos *ngFor="let elementousuarios of usuarios; let i = index"
+    [usuarios_hijo]="elementousuarios"
+    [indice]="i"
+    ></app-alumnos>
+
+    <hr/><br/>
+    <h3>{{ titulo_listado }}</h3>
+
+    <div *ngFor="let regjson of registrojson; let i = index" class="row">
+        <div class="col-xs-12">
+            <div>
+                {{i+1}}: {{ regjson.nombre}}, {{regjson.edad}}, {{regjson.usuario}}, {{regjson.password}}
+            </div>            
+        </div>        
+    </div>
+    <hr/><br/>
+
+    <app-calculadora 
+        (resultadoSuma)="onResultado($event)">
+    </app-calculadora>
+    <p>Resultado: {{ resultado }}</p>
+
+</div>
