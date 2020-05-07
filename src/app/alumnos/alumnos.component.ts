@@ -1,7 +1,9 @@
-import { Component, OnInit, Input } from '@angular/core';
+import { Component, OnInit, Input, EventEmitter } from '@angular/core';
 import { Usuarios } from '../usuarios.model';
 import { REGISTROJSON } from '../registro.json';
+import { PersonasServices } from '../personas.service';
 
+ 
 @Component({
   selector: 'app-alumnos',
   templateUrl: './alumnos.component.html',
@@ -13,9 +15,14 @@ export class AlumnosComponent implements OnInit {
   @Input() usuarios_hijo: Usuarios;
   @Input() indice: number;
 
-  constructor() {}
+
+  constructor(private personaservice: PersonasServices) {}
 
   ngOnInit(): void {
+  }
+
+  emitirSaludo(){
+    this.personaservice.saludar.emit(this.indice);
   }
 
 }

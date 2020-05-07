@@ -1,0 +1,102 @@
+<!-- Page Wrapper -->
+<div id="wrapper">
+    <app-sidebar></app-sidebar>
+        
+        <!-- Content Wrapper -->
+        <div id="content-wrapper" class="d-flex flex-column">
+
+        <!-- Main Content -->
+        <div id="content">
+
+            <app-topbar></app-topbar>
+            
+            
+            <!-- Begin Page Content -->
+            <div class="container-fluid">
+                <div class="container">
+                    <!-- Page Heading -->
+                    <!-- DataTales Example -->
+                    <div class="card shadow mb-4">
+                        <div class="card-header py-3">
+                            <h6 class="m-0 font-weight-bold text-primary">Registrar Estudiante</h6>
+                        </div>
+                        <div class="card-body">
+                            <div class="table-responsive">
+                                <form class="form-row">
+                                    <div class="container">
+                                        <label for="nombre" >Nombre</label>
+                                        <!-- Property Binding y Event Biding-->
+                                        <!-- <input type="text" name="nombre" id="nombre" placeholder="Nombre" class="form-control" [(ngModel)]="nombreInput">  -->
+                                        <input type="text" name="nombre" placeholder="Nombre" class="form-control" #nombreInput required/>
+                                        <br/>
+                                        <label for="edad">Apellido Paterno</label>
+                                        <!-- <input type="text" name="edad" id="edad" placeholder="Edad" class="form-control" [(ngModel)]="edadInput"> -->
+                                        <input type="text" name="apellidoP" placeholder="Apellido Paterno" class="form-control" #apellidoPInput required/>
+                                        <br/>
+                                        <label for="usuario" >Apellido Materno</label>
+                                        <!-- <input type="text" name="usuario" id="usuario" placeholder="Usuario" class="form-control" [(ngModel)]="usuarioInput"> -->
+                                        <input type="text" name="apellidoM" placeholder="Apellido Materno" class="form-control" #apellidoMInput required/>
+                                        <br/>
+                                        <label for="password" >Dirección</label>
+                                        <!-- <input type="password" name="password" id="password" placeholder="Password" class="form-control" [(ngModel)]="passwordInput">-->
+                                        <input type="text" name="direccion" placeholder="Dirección" class="form-control" #direccionInput required/>
+                                        <br/>
+                                        <label for="nombre" >Edad</label>
+                                        <!-- Property Binding y Event Biding-->
+                                        <!-- <input type="text" name="nombre" id="nombre" placeholder="Nombre" class="form-control" [(ngModel)]="nombreInput">  -->
+                                        <input type="text" name="edad" placeholder="Edad" class="form-control" #edadInput required/>
+                                        <br/>
+                                        <label for="nombre" >Rut</label>
+
+                                        <div class="input-group">
+                                            <input style="width:100px" type="text" name="rut" placeholder="Rut" class="form-control" #rutInput required/>
+                                            <span class="input-group-addon">-</span>
+
+                                            <!-- Property Binding y Event Biding-->
+                                            <!-- <input type="text" name="nombre" id="nombre" placeholder="Nombre" class="form-control" [(ngModel)]="nombreInput">  -->
+                                            <input style="width:5px"   class="form-control" type="text" name="nombre" placeholder="Cv" class="form-control" #cvInput required/>
+
+                                        </div>
+                                        <br/>
+                                        <label for="nombre" >Email</label>
+                                        <!-- Property Binding y Event Biding-->
+                                        <!-- <input type="text" name="nombre" id="nombre" placeholder="Nombre" class="form-control" [(ngModel)]="nombreInput">  -->
+                                        <input type="text" name="email" placeholder="Email" class="form-control" #emailInput required/>
+                                        <br/>
+                                        <label for="nombre" >Teléfono</label>
+                                        <!-- Property Binding y Event Biding-->
+                                        <input type="text" name="telefono" placeholder="Teléfono" class="form-control" #telefonoInput required/>
+                                        <br/>
+                                        <button type="submit" class="btn btn-primary" 
+                                        (click)="onGuardarEstudiante(nombreInput,apellidoPInput,apellidoMInput,direccionInput,edadInput,rutInput,cvInput,emailInput,telefonoInput)"> 
+                                                Agregar Estudiante
+                                        </button>
+                                    </div>
+                                </form>
+                </div>
+        </div>
+</div>
+
+
+
+
+
+
+                   
+                </div>
+
+            </div>
+            <!-- /.container-fluid -->
+
+        </div>
+        <!-- End of Main Content -->
+
+        
+
+        <app-footer></app-footer>
+
+        </div>
+        <!-- End of Content Wrapper -->
+
+    </div>
+    <!-- End of Page Wrapper -->

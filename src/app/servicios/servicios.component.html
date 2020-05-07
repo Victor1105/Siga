@@ -1,0 +1,39 @@
+<div class="container">
+    <div class="col-xs-12">
+    <br/>
+        <h3>SERVICIOS</h3>
+    </div>
+    <hr/>
+    <form class="form-row">
+        <div class="form-group col-md-2">
+            <label for="nombre" class="sr-only">Nombre</label>
+            <!-- Property Binding y Event Biding-->
+            <!-- <input type="text" name="nombre" id="nombre" placeholder="Nombre" class="form-control" [(ngModel)]="nombreInput">  -->
+            <input type="text" name="nombre" id="nombre" placeholder="Nombre" class="form-control" #nombreInput>
+            <br/>
+            <label for="edad" class="sr-only">Edad</label>
+            <!-- <input type="text" name="edad" id="edad" placeholder="Edad" class="form-control" [(ngModel)]="edadInput"> -->
+            <input type="text" name="edad" id="edad" placeholder="Edad" class="form-control" #edadInput>
+            <br/>
+            <label for="usuario" class="sr-only">Usuario</label>
+            <!-- <input type="text" name="usuario" id="usuario" placeholder="Usuario" class="form-control" [(ngModel)]="usuarioInput"> -->
+            <input type="text" name="usuario" id="usuario" placeholder="Usuario" class="form-control" #usuarioInput>
+            <br/>
+            <label for="password" class="sr-only">Password</label>
+            <!-- <input type="password" name="password" id="password" placeholder="Password" class="form-control" [(ngModel)]="passwordInput">-->
+            <input type="text" name="password" id="password" placeholder="Password" class="form-control" #passwordInput>
+            <br/>
+        </div>
+        <div class="col">
+            <button type="submit" class="btn btn-primary" 
+                (click) = "onAgregarUsuario($event)">Agregar
+            </button>
+        </div>
+    </form>
+    <hr/>
+    Lista
+    <app-alumnos *ngFor="let elementousuarios of usuarios; let i = index"
+    [usuarios_hijo]="elementousuarios"
+    [indice]="i"
+    ></app-alumnos>
+</div>
