@@ -13,18 +13,19 @@ import { DataServices } from '../data.services';
 
 @Injectable()
 export class EstudianteComponent implements OnInit {
-  estudiantes: Estudiantes[];
+  estudiantes: Estudiantes[] =[];
 
   constructor(private _location: Location,
               private router: Router,
               private dataServices: DataServices) { }
 
   ngOnInit(): void {
-    this.estudiantes = ESTUDIANTE_JSON;
+   
   }
 
-  onGuardarEstudiante(nombreInput:HTMLInputElement,apellidoPInput:HTMLInputElement,apellidoMInput:HTMLInputElement,direccionInput:HTMLInputElement,
-                      edadInput:HTMLInputElement,rutInput:HTMLInputElement,cvInput:HTMLInputElement,emailInput:HTMLInputElement,telefonoInput:HTMLInputElement){
+  onGuardarEstudiante(nombreInput:HTMLInputElement,apellidoPInput:HTMLInputElement,apellidoMInput:HTMLInputElement,
+                      direccionInput:HTMLInputElement, edadInput:HTMLInputElement,rutInput:HTMLInputElement,
+                      cvInput:HTMLInputElement,emailInput:HTMLInputElement,telefonoInput:HTMLInputElement){
 
       let estudiantev = new Estudiantes(nombreInput.value, 
                                         apellidoPInput.value, 
@@ -35,13 +36,20 @@ export class EstudianteComponent implements OnInit {
                                         cvInput.value,
                                         emailInput.value,
                                         telefonoInput.value );
+    
+      // si el arreglo esta nulo inicializarlo como vacio
+      if(this.estudiantes == null){
+        this.estudiantes = [];
+      }                                            
 
-    this.estudiantes.push(estudiantev);
-    //console.log("console log this.estudiantes: "+ this.estudiantes);
-    //guardar estudiantes
-    this.dataServices.guardarEstudiantes(this.estudiantes);
-    //redireccionar a la lista de estudiantes
-    this.router.navigate(['estudiantes']);
+      this.estudiantes.push(estudiantev);
+      //console.log("console log this.estudiantes: "+ this.estudiantes);
+      //guardar estudiantes
+      this.dataServices.guardarEstudiantes(this.estudiantes);
+      //redireccionar a la lista de estudiantes
+      this.router.navigate(['estudiantes']);
   }
+
+
 
 }
