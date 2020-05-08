@@ -4,7 +4,7 @@ import { ESTUDIANTE_JSON } from '../estudiantes.json';
 import { NgbModal } from '@ng-bootstrap/ng-bootstrap';
 import { DataServices} from '../data.services';
 import {HttpClient } from '@angular/common/http';
-import { REGISTROJSON } from '../registro.json';
+//import { REGISTROJSON } from '../registro.json';
 
 @Component({
   selector: 'app-estudiantes',
@@ -24,21 +24,21 @@ export class EstudiantesComponent implements OnInit {
 
  
   estudiantes: Estudiantes[];
-  closeResult: string;
 
-  constructor(private modalService: NgbModal,
-              private dataService: DataServices,
+  constructor(private dataService: DataServices,
               private httpcliente: HttpClient) { }
 
   ngOnInit(): void {    
-      
+    
+    
     this.dataService.cargarEstudiante()
     .subscribe(
-          (estudiantesv: Estudiantes[]) => {
-            this.estudiantes = estudiantesv;
-            this.dataService.setEstudiantes(estudiantesv);
+          (estudiantes: Estudiantes[]) => {
+            this.estudiantes = estudiantes;
+            this.dataService.setEstudiantes(this.estudiantes);
           }
     );
+
 
   }
   

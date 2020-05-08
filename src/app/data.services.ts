@@ -11,7 +11,8 @@ export class DataServices{
     
     //Guardar Estudiante
     guardarEstudiantes(estudiantes: Estudiantes[]){
-    
+        console.log("estudiantes guardarEstudiantes: "+estudiantes);
+
         this.httpClient.put('https://siga-cf823.firebaseio.com/datos.json',estudiantes)
         .subscribe(
             response => console.log("El estudiante se ha guardado correctamente!!."+response),
