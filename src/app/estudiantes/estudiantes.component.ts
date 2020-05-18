@@ -26,7 +26,7 @@ export class EstudiantesComponent implements OnInit {
               private estudiantesService: EstudianteServices,
               private router: Router,
               private route:ActivatedRoute
-              ) { }
+              ) { } 
 
   ngOnInit(): void { 
     
