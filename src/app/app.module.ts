@@ -17,10 +17,14 @@ import { HorarioComponent } from './horario/horario.component';
 import { RegistrosComponent } from './registros/registros.component';
 import { AlumnosComponent } from './alumnos/alumnos.component';
 import { CalculadoraComponent } from './calculadora/calculadora.component';
-import { ServiciosComponent } from './servicios/servicios.component';
 import { LoggingService } from './LoggingService.service';
+
+//Servicios
 import { PersonasServices } from './personas.service';
 import { DataServices } from './data.services';
+import { EstudianteServices } from './estudiante.services';
+
+//Componentes
 import { SidebarComponent } from './sidebar/sidebar.component';
 import { TopbarComponent } from './topbar/topbar.component';
 import { FooterComponent } from './footer/footer.component';
@@ -37,6 +41,8 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { EstudiantesComponent } from './estudiantes/estudiantes.component';
 import { EstudianteComponent } from './estudiante/estudiante.component';
 import { HttpClientModule } from '@angular/common/http';
+import { EstudianteListadoComponent } from './estudiante-listado/estudiante-listado.component';
+
 
 
 
@@ -57,7 +63,6 @@ const routes: Routes = [
     RegistrosComponent,
     AlumnosComponent,
     CalculadoraComponent,
-    ServiciosComponent,
     SidebarComponent,
     TopbarComponent,
     FooterComponent,
@@ -71,7 +76,8 @@ const routes: Routes = [
     CanaldeayudaComponent,
     InicioComponent,
     EstudiantesComponent,
-    EstudianteComponent
+    EstudianteComponent,
+    EstudianteListadoComponent
   ],
   imports: [
     BrowserModule,
@@ -84,7 +90,7 @@ const routes: Routes = [
     HttpClientModule
 
   ],
-  providers: [LoggingService, PersonasServices, DataServices],
+  providers: [LoggingService, PersonasServices, DataServices, EstudianteServices],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

@@ -22,54 +22,51 @@
                         </div>
                         <div class="card-body">
                             <div class="table-responsive">
-                                <form class="form-row">
+                                <form class="form-row item" #f="ngForm" (ngSubmit)="f.form.valid && onGuardarPersona()">
                                     <div class="container">
                                         <label for="nombre" >Nombre</label>
                                         <!-- Property Binding y Event Biding-->
-                                        <!-- <input type="text" name="nombre" id="nombre" placeholder="Nombre" class="form-control" [(ngModel)]="nombreInput">  -->
-                                        <input type="text" name="nombre" placeholder="Nombre" class="form-control" #nombreInput required/>
+                                        <input type="text" name="nombreInput" placeholder="Nombre" class="form-control" [(ngModel)]="nombreInput" required/>
                                         <br/>
                                         <label for="edad">Apellido Paterno</label>
-                                        <!-- <input type="text" name="edad" id="edad" placeholder="Edad" class="form-control" [(ngModel)]="edadInput"> -->
-                                        <input type="text" name="apellidoP" placeholder="Apellido Paterno" class="form-control" #apellidoPInput required/>
+                                        <input type="text" name="apellidoPInput" placeholder="Apellido Paterno" class="form-control" [(ngModel)]="apellidoPInput" required/>
                                         <br/>
                                         <label for="usuario" >Apellido Materno</label>
-                                        <!-- <input type="text" name="usuario" id="usuario" placeholder="Usuario" class="form-control" [(ngModel)]="usuarioInput"> -->
-                                        <input type="text" name="apellidoM" placeholder="Apellido Materno" class="form-control" #apellidoMInput required/>
+                                        <input type="text" name="apellidoMInput" placeholder="Apellido Materno" class="form-control" [(ngModel)]="apellidoMInput" required/>
                                         <br/>
                                         <label for="password" >Dirección</label>
-                                        <!-- <input type="password" name="password" id="password" placeholder="Password" class="form-control" [(ngModel)]="passwordInput">-->
-                                        <input type="text" name="direccion" placeholder="Dirección" class="form-control" #direccionInput required/>
+                                        <input type="text" name="direccionInput" placeholder="Dirección" class="form-control" [(ngModel)]="direccionInput" required/>
                                         <br/>
                                         <label for="nombre" >Edad</label>
                                         <!-- Property Binding y Event Biding-->
-                                        <!-- <input type="text" name="nombre" id="nombre" placeholder="Nombre" class="form-control" [(ngModel)]="nombreInput">  -->
-                                        <input type="text" name="edad" placeholder="Edad" class="form-control" #edadInput required/>
+                                        <input type="text" name="edadInput" placeholder="Edad" class="form-control" [(ngModel)]="edadInput" required/>
                                         <br/>
                                         <label for="nombre" >Rut</label>
 
                                         <div class="input-group">
-                                            <input style="width:100px" type="text" name="rut" placeholder="Rut" class="form-control" #rutInput required/>
+                                            <input style="width:100px" type="text" name="rut" placeholder="Rut" class="form-control" [(ngModel)]="rutInput" required/>
                                             <span class="input-group-addon">-</span>
 
                                             <!-- Property Binding y Event Biding-->
-                                            <!-- <input type="text" name="nombre" id="nombre" placeholder="Nombre" class="form-control" [(ngModel)]="nombreInput">  -->
-                                            <input style="width:5px"   class="form-control" type="text" name="nombre" placeholder="Cv" class="form-control" #cvInput required/>
+                                            <input style="width:5px"   class="form-control" type="text" name="nombre" placeholder="Cv" class="form-control" [(ngModel)]="cvInput" required/>
 
                                         </div>
                                         <br/>
                                         <label for="nombre" >Email</label>
                                         <!-- Property Binding y Event Biding-->
-                                        <!-- <input type="text" name="nombre" id="nombre" placeholder="Nombre" class="form-control" [(ngModel)]="nombreInput">  -->
-                                        <input type="text" name="email" placeholder="Email" class="form-control" #emailInput required/>
+                                        <input type="text" name="email" placeholder="Email" class="form-control" [(ngModel)]="emailInput" required/>
                                         <br/>
                                         <label for="nombre" >Teléfono</label>
                                         <!-- Property Binding y Event Biding-->
-                                        <input type="text" name="telefono" placeholder="Teléfono" class="form-control" #telefonoInput required/>
+                                        <input type="text" name="telefono" placeholder="Teléfono" class="form-control" [(ngModel)]="telefonoInput" required/>
                                         <br/>
-                                        <button type="submit" class="btn btn-primary" 
-                                        (click)="onGuardarEstudiante(nombreInput,apellidoPInput,apellidoMInput,direccionInput,edadInput,rutInput,cvInput,emailInput,telefonoInput)"> 
+                                        <button type="submit" style="cursor: pointer"> 
                                                 Agregar Estudiante
+                                        </button>
+                                        <button 
+                                            *ngIf="index != null" type="submit" style="cursor: pointer" class="buttonRed" (click)="onEliminarPersona()"
+                                        > 
+                                        Eliminar Estudiante
                                         </button>
                                     </div>
                                 </form>

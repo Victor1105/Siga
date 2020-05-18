@@ -1,30 +1,20 @@
 export class Estudiantes{
 
-    nombres: string;
-    apellidoP: string;
-    apellidoM: string;
-    direccion: string;
-    edad: string;
-    rut: string;
-    cverificacion: string;
-    email: string;
-    telefono: string;
-
-    constructor(nombresv:string, apellidoPv:string, apellidoMv:string, direccionv:string, edadv:string,
-        rutv:string, cverificacionv: string, emailv:string, telefonov:string){
-
-            this.nombres = nombresv;
-            this.apellidoP = apellidoPv;
-            this.apellidoM = apellidoMv;
-            this.direccion = direccionv;
-            this.edad = edadv;
-            this.rut = rutv;
-            this.cverificacion = cverificacionv;
-            this.email = emailv;
-            this.telefono = telefonov;
+    constructor(public nombres:string,
+                public apellidoP:string ,
+                public apellidoM:string,
+                public direccion:string,
+                public edad:string,
+                public rut:string,
+                public cverificacion:string,
+                public email:string,
+                public telefono:string){}
 
 
-    }
+                toString(): string {
+                    return this.nombres + " " + this.apellidoP + " " + this.apellidoM + " " + this.direccion
+                    + " " + this.edad + " " + this.rut + " " + this.cverificacion + " " + this.email + " " + this.telefono; 
+                }
 
 
 }

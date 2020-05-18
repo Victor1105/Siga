@@ -19,7 +19,7 @@ export class PersonasServices{
     }
 
     agregarUsuarios(usuarioss: Usuarios){
-        this.loggingService.enviarMensaje("agregando personas: "+usuarioss.nombre+" "+usuarioss.edad);
+        this.loggingService.enviaMensajeAConsola("agregando personas: "+usuarioss.nombre+" "+usuarioss.edad);
         this.usuarios.push(usuarioss);
     }
 

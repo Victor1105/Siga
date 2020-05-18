@@ -19,41 +19,24 @@
                         <!-- Page Heading -->
                             <div class="d-sm-flex align-items-center justify-content-between mb-4">
                                 <h1 class="h3 mb-0 text-gray-800">Estudiantes</h1>
-                                <button [routerLink]="['/estudiante/agregar']" type="button" class="btn btn-primary">                                    
-                                    Registrar Estudiante</button>
+                                <button (click)="irAgregar()" type="button" class="btn btn-primary" style="cursor: pointer">                                    
+                                    Registrar Estudiante
+                                </button>
                             </div>
     
                             <!-- Content Row -->
-    
                             <table class="table table-bordered">
-                                <thead>
-                                    <tr>
-                                        <th scope="col">Nombre</th>
-                                        <th scope="col">Apellido Paterno</th>
-                                        <th scope="col">Apellido Materno</th>
-                                        <th scope="col">Dirección</th>  
-                                        <th scope="col">Edad</th>
-                                        <th scope="col">Rut</th>   
-                                        <th scope="col">CV</th>
-                                        <th scope="col">Email</th>
-                                        <th scope="col">Teléfono</th>                                 
+     
+                                <tbody>
+                                    <app-estudiante-listado
+                                            *ngFor="let estudianteElemento of estudiantes; let i = index"
+                                            [estudiante]="estudianteElemento"
+                                            [indice]="i">     
+                                    </app-estudiante-listado>
+                                </tbody> 
+                            </table>    
 
-                                    </tr>
-                                </thead>
-                                <tbody> 
-                                    <tr *ngFor="let ejson of estudiantes">
-                                        <td>{{ ejson.nombres }}</td>
-                                        <td>{{ ejson.apellidoP }}</td>
-                                        <td>{{ ejson.apellidoM }}</td>
-                                        <td>{{ ejson.direccion }}</td>
-                                        <td>{{ ejson.edad }}</td>
-                                        <td>{{ ejson.rut }}</td>
-                                        <td>{{ ejson.cverificacion }}</td>
-                                        <td>{{ ejson.email }}</td>
-                                        <td>{{ ejson.telefono }}</td>
-                                    </tr>        
-                                </tbody>
-                            </table>
+
                     </div>
 
                 </div>
