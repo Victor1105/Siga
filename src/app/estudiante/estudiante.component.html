@@ -60,15 +60,10 @@
                                         <!-- Property Binding y Event Biding-->
                                         <input type="text" name="telefono" placeholder="Teléfono" class="form-control" [(ngModel)]="telefonoInput" required/>
                                         <br/>
-                                        <button type="submit" style="cursor: pointer"> 
+                                        <button type="submit" style="cursor: pointer" class="btn btn-primary" (click)="onGuardarPersona()"> 
                                                 Agregar Estudiante
                                         </button>
-                                        <button 
-                                            *ngIf="index != null" type="submit" style="cursor: pointer" class="buttonRed" (click)="onEliminarPersona()"
-                                        > 
-                                        Eliminar Estudiante
-                                        </button>
-                                    </div>
+                                     </div>
                                 </form>
                 </div>
         </div>

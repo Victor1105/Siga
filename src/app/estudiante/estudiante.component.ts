@@ -81,22 +81,27 @@ export class EstudianteComponent implements OnInit {
        this.rutInput != null && 
        this.cvInput != null && 
        this.emailInput != null && 
-       this.telefonoInput != null){
+       this.telefonoInput != null){     
+
 
       let estudiante1:Estudiantes = new Estudiantes(this.nombreInput, this.apellidoPInput, this.apellidoMInput, this.direccionInput, this.edadInput, this.rutInput, this.cvInput, this.emailInput, this.telefonoInput);
 
-      if(this.modoEdicion!= null && this.modoEdicion == 1){
-        this.estudianteServices.modificarPersona(this.index, estudiante1);
-      }
-      else{
-        //alert("estudiante agregar: "+ estudiante1);
-        this.estudianteServices.agregarPersona(estudiante1);
-      }
+      if(this.modoEdicion!= null && this.modoEdicion == 1)
+        {
+          this.estudianteServices.modificarPersona(this.index, estudiante1);
+        }
+        else
+        {
+          //alert("estudiante agregar: "+ estudiante1);
+          this.estudianteServices.agregarPersona(estudiante1);
+        
+        }
       this.loggingService.enviaMensajeAConsola("persona agregada/modificada:" + estudiante1.toString());
       this.router.navigate(['estudiantes']);
     }
     else{//si no tiene datos no hace nada se queda en el mismo lugar
-      return;
+      alert("Necesita Rellenar Todos los campos del Formulario!");  
+      //return;
     }
 
   }

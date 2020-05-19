@@ -14,12 +14,12 @@ export class EstudianteListadoComponent implements OnInit {
   
   @Input() estudiante: Estudiantes;
   @Input() indice: number;
+  
 
   ngOnInit() {
   }
 
-  constructor(private estudianteServices: EstudianteServices,private router: Router,
-) {
+  constructor(private estudianteServices: EstudianteServices,private router: Router) {
 
     
 

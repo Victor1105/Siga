@@ -68,11 +68,17 @@ export class EstudianteServices{
     }
 
     eliminarPersona(index:number){
-        this.loggingService.enviaMensajeAConsola("eliminar persona con indice: " + index); 
-        this.estudiantes.splice(index,1);
-        this.dataService.eliminarPersona(index);
-        //Se vuelven a guardar todas las personas para que coincida el indice con el arreglo en memoria
-        this.modificarPersonas();
+        let estudiante = this.estudiantes;
+        let confirmacion = confirm("Esta Seguro que quiere eliminar este dato?");
+        if(confirmacion == true)
+        {
+            this.loggingService.enviaMensajeAConsola("eliminar persona con indice: " + index); 
+            this.estudiantes.splice(index,1);
+            this.dataService.eliminarPersona(index);
+            //Se vuelven a guardar todas las personas para que coincida el indice con el arreglo en memoria
+            this.modificarPersonas();
+            alert("Estudiante Eliminado");
+        }
     }
 
 
