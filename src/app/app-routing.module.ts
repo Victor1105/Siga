@@ -13,23 +13,30 @@ import { CanaldeayudaComponent } from './canaldeayuda/canaldeayuda.component';
 import { InicioComponent } from './inicio/inicio.component';
 import { EstudiantesComponent } from './estudiantes/estudiantes.component';
 import { EstudianteComponent } from './estudiante/estudiante.component';
+import { LoginComponent } from './login/login.component';
+import { LoginGuardian } from './login-guardian.service';
 
 const routes: Routes = [
-  {path: 'horario', component: HorarioComponent},
-  {path: 'asignatura', component: AsignaturaComponent},
-  {path: 'libretadecomunicaciones', component: LibretadecomunicacionesComponent},
-  {path: 'libretadenotas', component: LibretadenotasComponent},
-  {path: 'reforzamiento', component: ReforzamientoComponent},
-  {path: 'contactosdocentes', component: ContactosdocentesComponent},
-  {path: 'canaldeayuda', component: CanaldeayudaComponent},
-  {path: 'estudiantes', component: EstudiantesComponent},
-  {path: '', component: InicioComponent},
-  {path: 'inicio', component: InicioComponent},
-  {path: 'estudiante/agregar', component: EstudianteComponent},
-  {path: 'estudiante/:id', component: EstudianteComponent},
-  //{path: 'estudiante/modificar/:id', component: EstudianteComponent},
-  {path: 'estudiante/eliminar', component: EstudianteComponent},
+  //Login
+  {path: '', component: LoginComponent},
 
+  //Menú
+  {path: 'inicio', component: InicioComponent, canActivate:[LoginGuardian]},
+  {path: 'horario', component: HorarioComponent, canActivate:[LoginGuardian]},
+  {path: 'asignatura', component: AsignaturaComponent, canActivate:[LoginGuardian]},
+  {path: 'libretadecomunicaciones', component: LibretadecomunicacionesComponent, canActivate:[LoginGuardian]},
+  {path: 'libretadenotas', component: LibretadenotasComponent, canActivate:[LoginGuardian]},
+  {path: 'reforzamiento', component: ReforzamientoComponent, canActivate:[LoginGuardian]},
+  {path: 'contactosdocentes', component: ContactosdocentesComponent, canActivate:[LoginGuardian]},
+  {path: 'canaldeayuda', component: CanaldeayudaComponent, canActivate:[LoginGuardian]},
+  {path: 'estudiantes', component: EstudiantesComponent, canActivate:[LoginGuardian]},
+
+  {path: 'estudiante/agregar', component: EstudianteComponent, canActivate:[LoginGuardian]},
+  {path: 'estudiante/:id', component: EstudianteComponent, canActivate:[LoginGuardian]},
+  //{path: 'estudiante/modificar/:id', component: EstudianteComponent},
+  {path: 'estudiante/eliminar', component: EstudianteComponent, canActivate:[LoginGuardian]},
+
+  
 
 
   {path: 'calcu', component: CalculadoraComponent},

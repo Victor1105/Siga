@@ -41,7 +41,9 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { EstudiantesComponent } from './estudiantes/estudiantes.component';
 import { EstudianteComponent } from './estudiante/estudiante.component';
 import { HttpClientModule } from '@angular/common/http';
-import { EstudianteListadoComponent } from './estudiante-listado/estudiante-listado.component';
+import { LoginComponent } from './login/login.component';
+import { LoginService } from './login.service';
+import { LoginGuardian } from './login-guardian.service';
 
 
 
@@ -77,7 +79,8 @@ const routes: Routes = [
     InicioComponent,
     EstudiantesComponent,
     EstudianteComponent,
-    EstudianteListadoComponent
+    LoginComponent
+    
   ],
   imports: [
     BrowserModule,
@@ -90,7 +93,7 @@ const routes: Routes = [
     HttpClientModule
 
   ],
-  providers: [LoggingService, PersonasServices, DataServices, EstudianteServices],
+  providers: [LoggingService, PersonasServices, DataServices, EstudianteServices, LoginService, LoginGuardian],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

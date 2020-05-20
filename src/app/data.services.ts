@@ -1,6 +1,7 @@
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { Estudiantes } from './estudiantes.model';
+import { LoginService } from './login.service';
  
 @Injectable()
 export class DataServices{
@@ -9,34 +10,31 @@ export class DataServices{
 
     
 
-    constructor(private httpClient: HttpClient){}
+    constructor(private httpClient: HttpClient,
+                private loginService: LoginService){}
     
-    cargarPersonas(){
-        return this.httpClient.get('https://siga-cf823.firebaseio.com/datos.json');
-    }
 
-    //Guardar Estudiante
-    guardarEstudiantes(estudiantes: Estudiantes[]){
-        console.log("estudiantes guardarEstudiantes: "+estudiantes);
 
-        this.httpClient.put('https://siga-cf823.firebaseio.com/datos.json',estudiantes)
-        .subscribe(
-            response => console.log("El estudiante se ha guardado correctamente!!."+response),
-            error => console.log("Error al guardar Estudiante"+error)
-        );
-    
-    }
-
-    cargarEstudiante(){
-        return this.httpClient.get('https://siga-cf823.firebaseio.com/datos.json');
-    }
 
     ///////////////////////////////////////////////////////////////////////////////
+
+    cargarPersonas(){
+        const token = this.loginService.getIdToken();
+        return this.httpClient.get('https://siga-cf823.firebaseio.com/datos.json?auth='+token);
+    }
+    cargarEstudiante(){
+        const token = this.loginService.getIdToken();
+
+        return this.httpClient.get('https://siga-cf823.firebaseio.com/datos.json?auth='+token);
+    }
+
 
 
             //Guarda todo el arreglo de personas 
     guardarPersonas(estudiantes: Estudiantes[]) {
-        this.httpClient.put('https://siga-cf823.firebaseio.com/datos.json', estudiantes)
+        const token = this.loginService.getIdToken();
+
+        this.httpClient.put('https://siga-cf823.firebaseio.com/datos.json?auth='+token , estudiantes)
             .subscribe(
                 (response) => {
                     console.log("resultado guardar Personas: " + response);
@@ -47,8 +45,10 @@ export class DataServices{
 
 
     modificarPersona(index:number, estudiantes: Estudiantes){
+        const token = this.loginService.getIdToken();
+
         let url: string;
-        url = 'https://siga-cf823.firebaseio.com' + '/datos/' + index + '.json';
+        url = 'https://siga-cf823.firebaseio.com' + '/datos/' + index + '.json?auth='+token;
         console.log("url de modificarPersona:" + url);
         this.httpClient.put( url, estudiantes)
             .subscribe(
@@ -60,8 +60,10 @@ export class DataServices{
     }
 
     eliminarPersona(index:number){
+        const token = this.loginService.getIdToken();
+
         let url: string;
-        url = 'https://siga-cf823.firebaseio.com' + '/datos/' + (index) + '.json';
+        url = 'https://siga-cf823.firebaseio.com' + '/datos/' + (index) + '.json?auth='+token;
         console.log("url de eliminarPersona:" + url);
         this.httpClient.delete( url)
             .subscribe(
@@ -77,7 +79,21 @@ export class DataServices{
 
 
     ///////////////////////////////////////////////////////////////////////////////
+/*
+    //Guardar Estudiante
+    guardarEstudiantes(estudiantes: Estudiantes[]){
+        console.log("estudiantes guardarEstudiantes: "+estudiantes);
 
+        this.httpClient.put('https://siga-cf823.firebaseio.com/datos.json',estudiantes)
+        .subscribe(
+            response => console.log("El estudiante se ha guardado correctamente!!."+response),
+            error => console.log("Error al guardar Estudiante"+error)
+        );
+    
+    }
+*/
+
+    /*
     setEstudiantes(estudiantes: Estudiantes[]){
         this.estudiantes = estudiantes;
     }
@@ -111,6 +127,6 @@ export class DataServices{
         estudiantev.telefono = estudiante.telefono;
 
        
-    }
+    }*/
  
 } 
